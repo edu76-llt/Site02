@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Estilo da barra de rolagem */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+header {
+    text-align: center;
+    padding: clamp(1rem, 5vh, 3rem);
+    background-color: #f8f8f8;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.divider {
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    display: block;
+    line-height: 0;
+}
+
+.divider-image {
+    width: min(100%, 1600px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    vertical-align: top;
+}
+
+/* Estilos das gavetas */
+.drawer-tab {
+    position: fixed;
+    right: -300px;
+    width: 340px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.drawer-tab#sobre {
+    top: 40%;
+}
+
+.drawer-tab#contato {
+    top: 60%;
+}
+
+.tab-button {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left top;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    transition: background-color 0.3s;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.tab-button:hover {
+    background-color: #555;
+}
+
+.drawer-content {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    padding: clamp(15px, 3vw, 30px);
+    width: min(300px, 90vw);
+    height: min(500px, 80vh);
+    border-left: 3px solid #333;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+#contato .drawer-content {
+    height: auto;
+    min-height: 200px;
+}
+
+.drawer-tab.open {
+    right: 0;
+}
+
+/* Estilos do perfil */
+.profile-image {
+    width: clamp(150px, 30vw, 200px);
+    height: clamp(150px, 30vw, 200px);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    display: block;
+    object-fit: cover;
+    border: 3px solid #333;
+}
+
+/* Estilos dos links sociais */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.social-link:hover {
+    background-color: #f0f0f0;
+}
+
+.social-link i {
+    font-size: 1.5rem;
+}
+
+/* Estilos do conteúdo principal */
+main {
+    padding: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+main img {
+    width: min(100%, 1600px);
+    height: auto;
+    max-height: min(600px, 80vh);
+    object-fit: contain;
+}
+
+main p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: min(1200px, 90%);
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #333;
+    color: white;
+    width: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .drawer-tab {
+        width: 280px;
+    }
+
+    .drawer-content {
+        width: 250px;
+    }
+
+    .tab-button {
+        padding: 8px 16px;
+    }
+
+    main {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .drawer-tab {
+        width: 260px;
+    }
+
+    .drawer-content {
+        width: 230px;
+        padding: 15px;
+    }
+
+    .profile-image {
+        margin-bottom: 20px;
+    }
+
+    header {
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    main {
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+}
